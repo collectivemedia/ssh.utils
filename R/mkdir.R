@@ -21,8 +21,12 @@
 # limitations under the License.
 #-------------------------------------------------------------------------------
 
-#' Creates a remote directory with the specified group ownership.
-#' If the directory already exists, attempts to set the group ownership.
+#' Creates a remote directory with the specified group ownership and permissions.
+#' 
+#' If the directory already exists, attempts to set the group ownership to the 
+#' \code{user.group}. The allowed group permissions are one of 
+#' \code{c("g+rwx", "g+rx", "go-w", "go-rwx")}, or \code{"-"}. The value 
+#' \code{"-"} means "don't change permissions". 
 #' @param path Directory path. If using \code{remote}, this should be a full path or 
 #'             a path relative to the user's home directory.
 #' @param user.group The user group. If NULL, the default group is used.

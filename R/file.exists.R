@@ -21,10 +21,13 @@
 # limitations under the License.
 #-------------------------------------------------------------------------------
 
-#' Checks if a remote file exists. Works with local files too if \code{remote=""}.
+#' Checks if a local or remote file exists.
+#' 
+#' A wrapper around a bash script. Works with local files too if \code{remote=""}.
 #' @param file File path.
 #' @param remote Remote machine specification for ssh, in format such as \code{user@@server} that does not 
 #'        require interactive password entry. For local execution, pass an empty string "" (default).
+#' @return \code{TRUE} or \code{FALSE} indicating whether the file exists.
 #' @rdname file.exists.remote
 file.exists.remote <- function(file, remote = "")
 {

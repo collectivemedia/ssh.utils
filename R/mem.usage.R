@@ -21,9 +21,13 @@
 # limitations under the License.
 #-------------------------------------------------------------------------------
 
+#' Measure the resident memory usage of a process.
+#' 
 #' Returns the memory usage in KB of a process with the specified process id. By 
-#' default, returns the memory usage of the current R process.
+#' default, returns the memory usage of the current R process. This can be used
+#' to measure and log the memory usage of the R process during script execution.
 #' @param pid Process ID (default is the current process id).
+#' @return The resident memory usage in KB. 
 #' @rdname mem.usage
 mem.usage <- function(pid = getpid()) 
 { 
