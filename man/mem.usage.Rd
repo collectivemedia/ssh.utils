@@ -4,13 +4,10 @@
 \title{Returns the memory usage in KB of a process with the specified process id. By
 default, returns the memory usage of the current R process.}
 \usage{
-mem.usage(pid = getpid(), remote = "")
+mem.usage(pid = getpid())
 }
 \arguments{
 \item{pid}{Process ID (default is the current process id).}
-
-\item{remote}{Remote machine specification for ssh, in format such as \code{user@server} that does not
-require interactive password entry. For local execution, pass an empty string "" (default).}
 }
 \description{
 Returns the memory usage in KB of a process with the specified process id. By

@@ -24,12 +24,10 @@
 #' Returns the memory usage in KB of a process with the specified process id. By 
 #' default, returns the memory usage of the current R process.
 #' @param pid Process ID (default is the current process id).
-#' @param remote Remote machine specification for ssh, in format such as \code{user@@server} that does not 
-#'        require interactive password entry. For local execution, pass an empty string "" (default).
 #' @rdname mem.usage
-mem.usage <- function(pid = getpid(), remote = "") 
+mem.usage <- function(pid = getpid()) 
 { 
-   df <- read.delim(pipe(run.remote("ps axo pid,rss", remote = remote)), sep = ""); 
+   df <- read.delim(pipe("ps axo pid,rss"), sep = ""); 
    df[df$PID == pid, "RSS"] 
 }
 

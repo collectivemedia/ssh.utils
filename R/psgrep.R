@@ -21,7 +21,10 @@
 # limitations under the License.
 #-------------------------------------------------------------------------------
 
-#' Checks for processes running on a remote machine.
+#' Checks for processes running on a local or remote machine.
+#' 
+#' One of the use cases for this function is to ensure that an R process is 
+#' already running and not start another one accidentally.
 #' @param grep.string  String(s) to check for in \code{ps}. If a vector, runs a chain of piped grep commands for each string.
 #' @param remote Remote machine specification for ssh, in format such as \code{user@@server} that does not 
 #'        require interactive password entry. For local execution, pass an empty string "" (default).
@@ -61,13 +64,14 @@ ps.grep.remote <- function(
       # check if what's running is the process that called this function (self)
       script.call <- paste(commandArgs(), collapse=" ")
       res.match <- sapply(res, function(s) length(grep(script.call, s, ignore.case = T, perl = T, value = T)) > 0)
-      running <- sum(res.match) > 1
+      # either we didn't match (e.g. on remote host) or we matched more than one
+      running <- !(sum(res.match) == 1)
    }
    
    # Stop if the 'grep.string' is running   
    if (stop.if.any && running)
    {
-      stop(paste("Found ", grep.string, " in ps aux on remote server ", remote, "; stopping\n\n",
+      stop(paste("Found ", grep.string, " in ps aux on remote server '", remote, "'; stopping\n\n",
                   paste(res, collapse = "\n"),
                   sep = ""))
    }
@@ -75,7 +79,7 @@ ps.grep.remote <- function(
    # Stop if the 'grep.string' is not running
    if (stop.if.none && !running)
    {
-         stop(paste("Did not find ", grep.string, " in ps aux on remote server ", remote, "; stopping", sep = ""))      
+         stop(paste("Did not find ", grep.string, " in ps aux on remote server '", remote, "'; stopping", sep = ""))      
    }
    
    return(running)   

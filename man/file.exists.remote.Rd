@@ -3,7 +3,7 @@
 \alias{file.exists.remote}
 \title{Checks if a remote file exists. Works with local files too if \code{remote=""}.}
 \usage{
-file.exists.remote(file, remote)
+file.exists.remote(file, remote = "")
 }
 \arguments{
 \item{file}{File path.}
