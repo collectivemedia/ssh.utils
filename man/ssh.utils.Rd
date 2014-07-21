@@ -3,11 +3,19 @@
 \name{ssh.utils}
 \alias{ssh.utils}
 \alias{ssh.utils-package}
-\title{Utility Functions to Run Remote and Local System Commands.}
+\title{Local and remote system commands with output and error capture.}
 \description{
-Package \code{ssh.utils} provides utility functions for calling system
-commands and capturing their output, both locally and remotely using ssh/scp.
+Package \code{ssh.utils} provides utility functions for system command
+execution, both locally and remotely using ssh/scp. The command
+output is captured and provided to the caller. This functionality is
+intended to streamline calling shell commands from R, retrieving and
+using their output, while instrumenting the calls with appropriate
+error handling.
 }
+\section{OS_type}{
+ unix
+}
+
 \section{Maintainer}{
  Sergei Izrailev
 }
@@ -33,13 +41,17 @@ commands and capturing their output, both locally and remotely using ssh/scp.
 Sergei Izrailev
 }
 \seealso{
-\code{\link{run.remote}}, \code{\link{cp.remote}}
+\code{\link{run.remote}}, \code{\link{cp.remote}},
+         \code{\link{file.exists.remote}}, \code{\link{mkdir.remote}},
+         \code{\link{ps.grep.remote}}, \code{\link{mem.usage}}
 }
 \keyword{"capture}
 \keyword{"system}
+\keyword{bash}
 \keyword{command"}
 \keyword{output"}
 \keyword{remote}
 \keyword{scp}
+\keyword{shell}
 \keyword{ssh}
 

@@ -20,15 +20,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #-------------------------------------------------------------------------------
-#' Package \code{ssh.utils} provides utility functions for calling system 
-#' commands and capturing their output, both locally and remotely using ssh/scp.
+ 
+#' Package \code{ssh.utils} provides utility functions for system command
+#' execution, both locally and remotely using ssh/scp. The command 
+#' output is captured and provided to the caller. This functionality is
+#' intended to streamline calling shell commands from R, retrieving and 
+#' using their output, while instrumenting the calls with appropriate
+#' error handling.
 #' 
 #' @name ssh.utils
 #' @aliases ssh.utils
-#' @seealso \code{\link{run.remote}}, \code{\link{cp.remote}} 
+#' @seealso \code{\link{run.remote}}, \code{\link{cp.remote}}, 
+#'          \code{\link{file.exists.remote}}, \code{\link{mkdir.remote}},
+#'          \code{\link{ps.grep.remote}}, \code{\link{mem.usage}} 
 #' @docType package
-#' @title Utility Functions to Run Remote and Local System Commands. 
+#' @title Local and remote system commands with output and error capture. 
 #' @author Sergei Izrailev
+#' @section OS_type: unix 
 #' @section Maintainer: Sergei Izrailev 
 #' @section Copyright: Copyright (C) Collective, Inc.
 #' @section License: Apache License, Version 2.0, 
@@ -36,7 +44,7 @@
 #' @section URL: http://github.com/collectivemedia/ssh.utils
 #' @section Installation from github: 
 #' \code{devtools::install_github("collectivemedia/ssh.utils")}
-#' @keywords ssh scp remote "capture output" "system command"
+#' @keywords ssh scp remote shell bash "capture output" "system command"
 #' @exportPattern "*"
 #' @import stringr 
 #' @import fork
