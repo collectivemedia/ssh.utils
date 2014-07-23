@@ -27,11 +27,41 @@ copying between remote hosts via the local machine.
 }
 \examples{
 \dontrun{
-# Copy file myfile.csv from the home directory on the remote server to
-# the local working directory.
+## Copy file myfile.csv from the home directory on the remote server to
+## the local working directory.
+
+## on remote server in bash shell:
+# cat myfile.csv
+# [me@myserver ~]$ cat myfile.csv
+# "val","ts"
+# 1,
+# 2,
+# 3,
+# 4,
+# 5,
+# 6,
+# 7,
+# 8,
+# 9,
+# 10,
+
+## on local server in R:
 cp.remote(remote.src = "me@myserver", path.src = "~/myfile.csv",
           remote.dest = "", path.dest = getwd(), verbose = TRUE)
-# [1] 37268
+# [1] "Elapsed: 1.672 sec"
+df <- read.csv("tmp_ts.csv")
+df
+#    val ts
+# 1    1 NA
+# 2    2 NA
+# 3    3 NA
+# 4    4 NA
+# 5    5 NA
+# 6    6 NA
+# 7    7 NA
+# 8    8 NA
+# 9    9 NA
+# 10  10 NA
 }
 }
 

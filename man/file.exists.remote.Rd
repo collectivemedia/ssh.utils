@@ -17,4 +17,10 @@ require interactive password entry. For local execution, pass an empty string ""
 \description{
 A wrapper around a bash script. Works with local files too if \code{remote=""}.
 }
+\examples{
+\dontrun{
+file.exists.remote("~/myfile.csv", remote = "me@myserver")
+# [1] TRUE
+}
+}
 

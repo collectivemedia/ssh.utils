@@ -99,12 +99,37 @@ run.withwarn <- function(expr)
 #' the number of warnings is greater than zero, \code{last.warning} attributes.
 #' @examples
 #' \dontrun{
-#' # Example of error handling:
+#' ## Error handling:
+#' remote = ""
+#' command = "ls /abcde"
 #' res <- run.remote(cmd=command, remote=remote)
 #' if (res$cmd.error)
 #' {
 #'    stop(paste(paste(res$cmd.out, collapse="\n"), res$warn.msg, sep="\n"))
 #' }
+#' # Error: ls: /abcde: No such file or directory
+#' # running command 'ls /abcde  2>&1 ' had status 1
+#' 
+#' ## Fetching result of a command on a remote server
+#' 
+#' # Get the file size in bytes
+#' res <- run.remote("ls -la myfile.csv | awk '{print \\$5;}'", remote = "me@@myserver")
+#' res
+#' # $cmd.error
+#' # [1] FALSE
+#' # 
+#' # $cmd.out
+#' # [1] "42"
+#' # attr(,"num.warnings")
+#' # [1] 0
+#' # attr(,"elapsed.time")
+#' # elapsed 
+#' # 1.063 
+#' #
+#' # $warn.msg
+#' # NULL
+#' 
+#' file.length <- as.integer(res$cmd.out)
 #' }
 #' @rdname run.remote
 run.remote <- function(cmd, remote = "", intern = T, stderr.redirect = T, verbose = F)

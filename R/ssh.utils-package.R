@@ -47,7 +47,6 @@
 #' @keywords ssh scp remote shell bash "capture output" "system command"
 #' @exportPattern "*"
 #' @import stringr 
-#' @import fork
 #' 
 # The next and last line should be the word 'NULL'.
 NULL

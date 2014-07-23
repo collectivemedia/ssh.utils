@@ -34,6 +34,7 @@
 #'        require interactive password entry. For local execution, pass an empty string "" (default).
 #' @param permissions The group permissions on the directory. Default is 'rwx'.
 #' @rdname mkdir.remote
+#' @note This may not work on Windows.
 # COMPATIBILITY WARNING: WINDOWS 
 mkdir.remote <- function(path, user.group = NULL, remote = "", 
       permissions = c("g+rwx", "g+rx", "go-w", "go-rwx", "-")) 

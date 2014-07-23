@@ -34,6 +34,13 @@
 #' @param ps.options   Gives the ability to run different options to ps.
 #' @seealso \code{run.remote}
 #' @rdname ps.grep.remote
+#' @note This may not work on Windows.
+#' @examples 
+#' \dontrun{
+#' # Check if Eclipse is running.
+#' ps.grep.remote("Eclipse", remote = "")
+#' # [1] TRUE
+#' }
 ps.grep.remote <- function(
       grep.string             # string(s) to check for in 'ps'
       , remote                # remote location to look for script

@@ -24,6 +24,16 @@ require interactive password entry. For local execution, pass an empty string ""
 One of the use cases for this function is to ensure that an R process is
 already running and not start another one accidentally.
 }
+\note{
+This may not work on Windows.
+}
+\examples{
+\dontrun{
+# Check if Eclipse is running.
+ps.grep.remote("Eclipse", remote = "")
+# [1] TRUE
+}
+}
 \seealso{
 \code{run.remote}
 }

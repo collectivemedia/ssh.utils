@@ -31,7 +31,7 @@
 #' @rdname file.exists.remote
 #' @examples 
 #' \dontrun{
-#' file.exists.remote("~/myfile.csv", remote = "me@myserver")
+#' file.exists.remote("~/myfile.csv", remote = "me@@myserver")
 #' # [1] TRUE
 #' }
 file.exists.remote <- function(file, remote = "")
