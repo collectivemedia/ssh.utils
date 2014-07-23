@@ -28,8 +28,13 @@
 #' to measure and log the memory usage of the R process during script execution.
 #' @param pid Process ID (default is the current process id).
 #' @return The resident memory usage in KB. 
+#' @examples
+#' \dontrun{
+#' mem.usage()
+#' # [1] 37268
+#' }
 #' @rdname mem.usage
-mem.usage <- function(pid = getpid()) 
+mem.usage <- function(pid = Sys.getpid()) 
 { 
    df <- read.delim(pipe("ps axo pid,rss"), sep = ""); 
    df[df$PID == pid, "RSS"] 

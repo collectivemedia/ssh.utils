@@ -25,4 +25,13 @@ cp.remote(remote.src, path.src, remote.dest, path.dest, verbose = FALSE,
 A wrapper around the scp shell command that handles local/remote files and allows
 copying between remote hosts via the local machine.
 }
+\examples{
+\dontrun{
+# Copy file myfile.csv from the home directory on the remote server to
+# the local working directory.
+cp.remote(remote.src = "me@myserver", path.src = "~/myfile.csv",
+          remote.dest = "", path.dest = getwd(), verbose = TRUE)
+# [1] 37268
+}
+}
 

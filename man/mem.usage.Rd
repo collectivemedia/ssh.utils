@@ -3,7 +3,7 @@
 \alias{mem.usage}
 \title{Measure the resident memory usage of a process.}
 \usage{
-mem.usage(pid = getpid())
+mem.usage(pid = Sys.getpid())
 }
 \arguments{
 \item{pid}{Process ID (default is the current process id).}
@@ -15,5 +15,11 @@ The resident memory usage in KB.
 Returns the memory usage in KB of a process with the specified process id. By
 default, returns the memory usage of the current R process. This can be used
 to measure and log the memory usage of the R process during script execution.
+}
+\examples{
+\dontrun{
+mem.usage()
+# [1] 37268
+}
 }
 

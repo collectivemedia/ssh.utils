@@ -29,6 +29,11 @@
 #'        require interactive password entry. For local execution, pass an empty string "" (default).
 #' @return \code{TRUE} or \code{FALSE} indicating whether the file exists.
 #' @rdname file.exists.remote
+#' @examples 
+#' \dontrun{
+#' file.exists.remote("~/myfile.csv", remote = "me@myserver")
+#' # [1] TRUE
+#' }
 file.exists.remote <- function(file, remote = "")
 {
    cmd <- paste("if [ -e ", file, " ] ; then echo TRUE; else echo FALSE; fi ", sep="")
