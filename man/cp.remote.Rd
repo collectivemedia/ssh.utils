@@ -49,7 +49,7 @@ copying between remote hosts via the local machine.
 cp.remote(remote.src = "me@myserver", path.src = "~/myfile.csv",
           remote.dest = "", path.dest = getwd(), verbose = TRUE)
 # [1] "Elapsed: 1.672 sec"
-df <- read.csv("tmp_ts.csv")
+df <- read.csv("myfile.csv")
 df
 #    val ts
 # 1    1 NA
