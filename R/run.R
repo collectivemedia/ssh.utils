@@ -137,7 +137,7 @@ run.remote <- function(cmd, remote = "", intern = T, stderr.redirect = T, verbos
    if (stderr.redirect) redir <- " 2>&1 " else redir <- ""
    if (!is.null(remote) && nchar(remote) > 0)
    {
-      command <- paste("ssh ", remote, " \"source ~/.bash_profile; ", cmd, redir, "\"")
+      command <- paste("ssh ", remote, " \"if [ -f  ~/.bash_profile ]; then source ~/.bash_profile; fi; ", cmd, redir, "\"")
    } else
    {
       command <- paste(cmd, redir)      

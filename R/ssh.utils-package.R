@@ -26,7 +26,8 @@
 #' output is captured and provided to the caller. This functionality is
 #' intended to streamline calling shell commands from R, retrieving and 
 #' using their output, while instrumenting the calls with appropriate
-#' error handling.
+#' error handling. NOTE: this first version is limited to unix with local 
+#' and remote systems running bash as the default shell. 
 #' 
 #' @name ssh.utils
 #' @aliases ssh.utils

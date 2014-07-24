@@ -8,7 +8,8 @@ Description: This package provides utility functions for system command
     output is captured and provided to the caller. This functionality is
     intended to streamline calling shell commands from R, retrieving and
     using their output, while instrumenting the calls with appropriate
-    error handling.
+    error handling. NOTE: this first version is limited to unix with local
+    and remote systems running bash as the default shell.
 URL: http://github.com/collectivemedia/ssh.utils
 Depends:
     R (>= 3.0.3),
@@ -16,3 +17,4 @@ Depends:
 License: Apache License (== 2.0)
 Copyright: Copyright (C) Collective, Inc. | file inst/COPYRIGHTS
 LazyData: true
+OS_type: unix
